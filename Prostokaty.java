@@ -6,7 +6,7 @@ class Prostokaty{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Wybierz kwadrat lub prostokat lub exit: ");
 		String wybor = sc.nextLine();
-		wybor.toUpperCase();
+		wybor=wybor.toUpperCase();
 		
 		if(wybor.equals("KWADRAT")){
 			int bok = 0;
@@ -16,8 +16,6 @@ class Prostokaty{
 				bok = sc.nextInt();
 			}
 			int pole = bok*bok;
-			System.out.println("Pole wynosi " + pole);
-			String tekst = "Pole wynosi " + pole;
 			bok = bok-1;
 			for(int i=0;i<=bok;i++){
 				for(int j=0;j<=bok;j++){
@@ -29,14 +27,7 @@ class Prostokaty{
 				}
 				System.out.println();
 			}
-			File f = new File("kwadrat.txt");
-			try{
-				FileWriter fw = new FileWriter(f);
-				fw.write(tekst);
-				fw.close();
-			} catch(IOException e){
-				System.out.println("BLAD: "+e.toString());
-			}
+			System.out.println("Pole wynosi " + pole);
 		}else if(wybor.equals("PROSTOKAT")){
 			int bok1=0;
 			int bok2=0;
@@ -50,7 +41,6 @@ class Prostokaty{
 				bok2 = sc.nextInt();
 			}
 			int pole = bok1*bok2;
-			System.out.println("Pole wynosi " + pole);
 			bok1 = bok1-1;
 			bok2 = bok2-1;
 			for(int i=0;i<=bok1;i++){
@@ -63,14 +53,7 @@ class Prostokaty{
 				}
 				System.out.println();
 			}
-			File f = new File("prostokat.txt");
-			try{
-				FileWriter fw = new FileWriter(f);
-				fw.write(tekst);
-				fw.close();
-			} catch(IOException e){
-				System.out.println("BLAD: "+e.toString());
-			}
+			System.out.println("Pole wynosi " + pole);
 		}else if(wybor.equals("EXIT")){
 			System.out.println("Zamykam program");
 		}else{
