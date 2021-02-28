@@ -47,12 +47,22 @@ public class NewJFrame extends javax.swing.JFrame {
         mk_jButtonDzie = new javax.swing.JButton();
         mk_jButtonClear = new javax.swing.JButton();
         mk_jButtonPier = new javax.swing.JButton();
+        mk_jMenuBar = new javax.swing.JMenuBar();
+        mk_jMenuPlik = new javax.swing.JMenu();
+        mk_jMenuItemClose = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Kalkulator");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        mk_jTextFieldWynik.setEditable(false);
+        mk_jTextFieldWynik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jTextFieldWynikActionPerformed(evt);
+            }
+        });
 
         mk_jButton1.setText("1");
         mk_jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +128,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         mk_jButtonDod.setText("+");
+        mk_jButtonDod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonDodActionPerformed(evt);
+            }
+        });
 
         mk_jButton8.setText("8");
         mk_jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -127,18 +142,53 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         mk_jButtonWynik.setText("=");
+        mk_jButtonWynik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonWynikActionPerformed(evt);
+            }
+        });
 
         mk_jButtonOde.setText("-");
+        mk_jButtonOde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonOdeActionPerformed(evt);
+            }
+        });
 
         mk_jButtonMno.setText("*");
+        mk_jButtonMno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonMnoActionPerformed(evt);
+            }
+        });
 
         mk_jButtonPot.setText("^");
+        mk_jButtonPot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonPotActionPerformed(evt);
+            }
+        });
 
         mk_jButtonDzie.setText("/");
+        mk_jButtonDzie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonDzieActionPerformed(evt);
+            }
+        });
 
         mk_jButtonClear.setText("C");
+        mk_jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonClearActionPerformed(evt);
+            }
+        });
 
         mk_jButtonPier.setText("√");
+        mk_jButtonPier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jButtonPierActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -230,11 +280,25 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        mk_jMenuPlik.setText("Plik");
+
+        mk_jMenuItemClose.setText("Zamknij");
+        mk_jMenuItemClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mk_jMenuItemCloseActionPerformed(evt);
+            }
+        });
+        mk_jMenuPlik.add(mk_jMenuItemClose);
+
+        mk_jMenuBar.add(mk_jMenuPlik);
+
+        setJMenuBar(mk_jMenuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,6 +359,94 @@ public class NewJFrame extends javax.swing.JFrame {
         mk_jTextFieldWynik.setText(liczba+"9");
         liczba=mk_jTextFieldWynik.getText();
     }//GEN-LAST:event_mk_jButton9ActionPerformed
+    int liczba1;
+    int liczba2;
+    String rownanie = "";
+    private void mk_jButtonDodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonDodActionPerformed
+        rownanie = "+";
+        liczba1 = Integer.parseInt(liczba);
+        liczba ="";
+    }//GEN-LAST:event_mk_jButtonDodActionPerformed
+
+    private void mk_jMenuItemCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jMenuItemCloseActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mk_jMenuItemCloseActionPerformed
+
+    private void mk_jButtonOdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonOdeActionPerformed
+        rownanie = "-";
+        liczba1 = Integer.parseInt(liczba);
+        liczba ="";
+    }//GEN-LAST:event_mk_jButtonOdeActionPerformed
+
+    private void mk_jButtonMnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonMnoActionPerformed
+        rownanie = "*";
+        liczba1 = Integer.parseInt(liczba);
+        liczba ="";
+    }//GEN-LAST:event_mk_jButtonMnoActionPerformed
+
+    private void mk_jButtonDzieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonDzieActionPerformed
+        rownanie = "/";
+        liczba1 = Integer.parseInt(liczba);
+        liczba ="";
+    }//GEN-LAST:event_mk_jButtonDzieActionPerformed
+
+    private void mk_jButtonPotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonPotActionPerformed
+        rownanie = "^";
+        liczba1 = Integer.parseInt(liczba);
+        liczba ="";
+    }//GEN-LAST:event_mk_jButtonPotActionPerformed
+
+    private void mk_jButtonPierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonPierActionPerformed
+        liczba1 = Integer.parseInt(liczba);
+        double wynik = Math.sqrt(liczba1);
+        String tekst = String.valueOf(wynik);
+        mk_jTextFieldWynik.setText(tekst);
+        liczba = "";
+    }//GEN-LAST:event_mk_jButtonPierActionPerformed
+
+    private void mk_jTextFieldWynikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jTextFieldWynikActionPerformed
+
+    }//GEN-LAST:event_mk_jTextFieldWynikActionPerformed
+
+    private void mk_jButtonWynikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonWynikActionPerformed
+        liczba2 = Integer.parseInt(liczba);
+        if(rownanie.equals("+")){
+            int wynik = liczba1 + liczba2;
+            String tekst = String.valueOf(wynik);
+            mk_jTextFieldWynik.setText(tekst);
+            liczba = "";
+        }else if(rownanie.equals("-")){
+            int wynik = liczba1 - liczba2;
+            String tekst = String.valueOf(wynik);
+            mk_jTextFieldWynik.setText(tekst);
+            liczba = "";
+        }else if(rownanie.equals("/")){
+            if(liczba2 == 0){
+                mk_jTextFieldWynik.setText("Nie mozna dzielic przez 0");
+                liczba = "";
+            }else{
+                int wynik = liczba1 / liczba2;
+                String tekst = String.valueOf(wynik);
+                mk_jTextFieldWynik.setText(tekst);
+                liczba = "";
+            }
+        }else if(rownanie.equals("*")){
+            int wynik = liczba1 * liczba2;
+            String tekst = String.valueOf(wynik);
+            mk_jTextFieldWynik.setText(tekst);
+            liczba = "";
+        }else if(rownanie.equals("^")){
+            double wynik = Math.pow(liczba1,liczba2);
+            String tekst = String.valueOf(wynik);
+            mk_jTextFieldWynik.setText(tekst);
+            liczba = "";
+        }
+    }//GEN-LAST:event_mk_jButtonWynikActionPerformed
+
+    private void mk_jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mk_jButtonClearActionPerformed
+        mk_jTextFieldWynik.setText("");
+        liczba = "";
+    }//GEN-LAST:event_mk_jButtonClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,6 +503,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton mk_jButtonPier;
     private javax.swing.JButton mk_jButtonPot;
     private javax.swing.JButton mk_jButtonWynik;
+    private javax.swing.JMenuBar mk_jMenuBar;
+    private javax.swing.JMenuItem mk_jMenuItemClose;
+    private javax.swing.JMenu mk_jMenuPlik;
     private javax.swing.JTextField mk_jTextFieldWynik;
     // End of variables declaration//GEN-END:variables
 }
