@@ -5,7 +5,9 @@
  */
 package com.mycompany.maciejkolpaczekkalkulator;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
 /**
@@ -485,8 +487,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np 01 02 2012");
-        
+        String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np 01 02 2012");
+        //System.out.println(data);
+        LocalDate date1=LocalDate.now();
+        LocalDate date2=LocalDate.parse(data, formatter);
+        long days ChronoUnit.DAYS.between(date2, date1);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
