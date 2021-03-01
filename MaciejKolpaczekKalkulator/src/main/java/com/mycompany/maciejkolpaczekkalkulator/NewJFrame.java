@@ -5,6 +5,9 @@
  */
 package com.mycompany.maciejkolpaczekkalkulator;
 
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CP24
@@ -56,6 +59,7 @@ public class NewJFrame extends javax.swing.JFrame {
         mk_jMenuBar = new javax.swing.JMenuBar();
         mk_jMenuPlik = new javax.swing.JMenu();
         mk_jMenuItemClose = new javax.swing.JMenuItem();
+        mk_jMenu5 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
@@ -309,10 +313,19 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         mk_jMenuPlik.add(mk_jMenuItemClose);
 
-        jMenuItem1.setText("Ile dni uplynelo");
-        mk_jMenuPlik.add(jMenuItem1);
-
         mk_jMenuBar.add(mk_jMenuPlik);
+
+        mk_jMenu5.setText("Tools");
+
+        jMenuItem1.setText("Ile dni podziemy datami");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mk_jMenu5.add(jMenuItem1);
+
+        mk_jMenuBar.add(mk_jMenu5);
 
         setJMenuBar(mk_jMenuBar);
 
@@ -470,6 +483,12 @@ public class NewJFrame extends javax.swing.JFrame {
         liczba = "";
     }//GEN-LAST:event_mk_jButtonClearActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np 01 02 2012");
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -532,6 +551,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton mk_jButtonPier;
     private javax.swing.JButton mk_jButtonPot;
     private javax.swing.JButton mk_jButtonWynik;
+    private javax.swing.JMenu mk_jMenu5;
     private javax.swing.JMenuBar mk_jMenuBar;
     private javax.swing.JMenuItem mk_jMenuItemClose;
     private javax.swing.JMenu mk_jMenuPlik;
