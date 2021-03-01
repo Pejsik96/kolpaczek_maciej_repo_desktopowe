@@ -27,6 +27,12 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         mk_jTextFieldWynik = new javax.swing.JTextField();
         mk_jButton1 = new javax.swing.JButton();
@@ -50,6 +56,19 @@ public class NewJFrame extends javax.swing.JFrame {
         mk_jMenuBar = new javax.swing.JMenuBar();
         mk_jMenuPlik = new javax.swing.JMenu();
         mk_jMenuItemClose = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Kalkulator");
@@ -290,6 +309,9 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         mk_jMenuPlik.add(mk_jMenuItemClose);
 
+        jMenuItem1.setText("Ile dni uplynelo");
+        mk_jMenuPlik.add(jMenuItem1);
+
         mk_jMenuBar.add(mk_jMenuPlik);
 
         setJMenuBar(mk_jMenuBar);
@@ -484,6 +506,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mk_jButton0;
     private javax.swing.JButton mk_jButton1;
