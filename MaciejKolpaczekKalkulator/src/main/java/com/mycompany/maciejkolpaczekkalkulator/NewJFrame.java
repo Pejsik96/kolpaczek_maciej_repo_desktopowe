@@ -489,9 +489,12 @@ public class NewJFrame extends javax.swing.JFrame {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
         String data = JOptionPane.showInputDialog("Wprowadz date w formacie dd mm yyyy np 01 02 2012");
         //System.out.println(data);
-        LocalDate date1=LocalDate.now();
-        LocalDate date2=LocalDate.parse(data, formatter);
-        long days ChronoUnit.DAYS.between(date2, date1);
+        if(data!=null && data.length()>0){
+            LocalDate date1=LocalDate.now();
+            LocalDate date2=LocalDate.parse(data, formatter);
+            long days = ChronoUnit.DAYS.between(date2, date1);
+            JOptionPane.showMessageDialog(rootPane,""+days,"Ilosc dni", HEIGHT);           
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
