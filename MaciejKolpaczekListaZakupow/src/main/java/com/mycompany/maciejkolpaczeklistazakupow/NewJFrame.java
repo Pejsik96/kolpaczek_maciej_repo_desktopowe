@@ -70,6 +70,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Podaj wartosc");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Typ zakupionego towaru");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -201,6 +207,10 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,7 +251,8 @@ public class NewJFrame extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 if(e.getKeyChar()==KeyEvent.VK_ENTER){
-                    System.out.println("Znak: "+e.getKeyChar());
+                    System.out.println("Znak wcisniecie ENTER ");
+                    jTextAreaZakupy.setText(jTextField2.getText());
                 }
             }
 
@@ -257,6 +268,29 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         );
     }
+    private void addKeyListenertojTextArea2(){
+        jTextField2.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if(ch == '0'|| ch == '1'|| ch == '2'||ch == '3'||ch == '4'||ch == '5'||ch == '6'||ch == '7'||ch == '8'||ch == '9'){
+                    System.out.println("NACISNIETO CYFRE");
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        }
+        );
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
