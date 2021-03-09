@@ -252,7 +252,7 @@ public class NewJFrame extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                 if(e.getKeyChar()==KeyEvent.VK_ENTER){
                     System.out.println("Znak wcisniecie ENTER ");
-                    jTextAreaZakupy.setText(jTextField2.getText());
+                    jTextAreaZakupy.setText(jTextAreaZakupy.getText());
                 }
             }
 
@@ -268,13 +268,16 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         );
     }
-    private void addKeyListenertojTextArea2(){
+    private void addKeyListenertojTextField2(){
         jTextField2.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 char ch = e.getKeyChar();
-                if(ch == '0'|| ch == '1'|| ch == '2'||ch == '3'||ch == '4'||ch == '5'||ch == '6'||ch == '7'||ch == '8'||ch == '9'){
+                if(ch>='0' && ch<='9' || ch==KeyEvent.VK_BACK_SPACE){
+                    jTextField2.setEditable(true);
                     System.out.println("NACISNIETO CYFRE");
+                }else{
+                    jTextField2.setEditable(false);
                 }
             }
 
