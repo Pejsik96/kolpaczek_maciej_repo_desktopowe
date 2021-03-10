@@ -7,6 +7,9 @@ package com.mycompany.maciejkolpaczeklistazakupow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -19,6 +22,8 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        addKeyListenertojTextField2();
+        addKeyListenertojTextField3();
     }
 
     /**
@@ -83,6 +88,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel4.setText("Data zakupu");
 
         jButton1.setText("Zapisz");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Dzisiejsze zakupy");
 
@@ -211,6 +221,24 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String produkt = jTextAreaZakupy.getText();
+        String wartosc = jTextField2.getText();
+        String typ = (String) jComboBox1.getSelectedItem();
+        String data = jTextField3.getText();
+        jTextArea1.setText(""+produkt+";"+wartosc+";"+typ+";"+data+";");
+        File f = new File("zakupy.txt");
+        try{
+            String aktualny = "";
+            FileWriter fw = new FileWriter(f);
+            fw.write(aktualny+"\n" + jTextArea1.getText());
+            aktualny = jTextArea1.getText();
+            fw.close();
+        }catch(IOException e){
+            System.out.println("BŁĄD: "+e.toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,6 +321,31 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         );
     }
+    private void addKeyListenertojTextField3(){
+                jTextField3.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if(ch>='0' && ch<='9' || ch==KeyEvent.VK_BACK_SPACE){
+                    jTextField3.setEditable(true);
+                    System.out.println("NACISNIETO CYFRE");
+                }else{
+                    jTextField3.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        }
+        );
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -319,4 +372,5 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
+
 }
