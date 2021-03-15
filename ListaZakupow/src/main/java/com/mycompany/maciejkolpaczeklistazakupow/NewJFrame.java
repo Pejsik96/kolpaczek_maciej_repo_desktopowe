@@ -325,14 +325,18 @@ public class NewJFrame extends javax.swing.JFrame {
                 jTextField3.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                String temp=jTextField3.getText();
                 char ch = e.getKeyChar();
                 if(ch>='0' && ch<='9' || ch==KeyEvent.VK_BACK_SPACE){
                     jTextField3.setEditable(true);
-                    System.out.println("NACISNIETO CYFRE");
+                    if(temp.length()==4 || temp.length()==7 &&  ch !=KeyEvent.VK_BACK_SPACE{
+                        jTextField3.setText(temp+'-');
+                        
                 }else{
                     jTextField3.setEditable(false);
                 }
             }
+            };
 
             @Override
             public void keyPressed(KeyEvent e) {
