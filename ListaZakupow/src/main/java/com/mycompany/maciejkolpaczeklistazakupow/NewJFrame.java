@@ -24,6 +24,7 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         addKeyListenertojTextField2();
         addKeyListenertojTextField3();
+        addTooltipToElements();
     }
 
     /**
@@ -86,6 +87,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setText("Data zakupu");
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Zapisz");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -239,6 +246,22 @@ public class NewJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+       
+    }//GEN-LAST:event_jTextField3ActionPerformed
+    public void keyTyped(KeyEvent e) {
+                String temp = jTextField3.getText();
+                char ch = e.getKeyChar();
+                if( (ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE ) && 
+                  (temp.length()<10 || ch == KeyEvent.VK_BACK_SPACE)){
+                    jTextField2.setEditable(true);
+                    if(temp.length() == 4 || temp.length()== 7 && ch != KeyEvent.VK_BACK_SPACE){
+                        jTextField3.setText(temp+"-");
+                    }
+                }else{
+                    jTextField3.setEditable(false);
+                }
+            }
     /**
      * @param args the command line arguments
      */
@@ -349,6 +372,16 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         }
         );
+    }
+    private void addTooltipToElements(){
+        jTextField2.setToolTipText("<html>"
+                +"<h3>Wprowadz tekst</h3>"
+                +"<p>W złotowkach</p>"
+                +"</html>");
+        jTextField3.setToolTipText("<html>"
+                +"<h3>Wprowadz date</h3>"
+                +"<p>W formacie dzien.miesiac.rok</p>"
+                +"</html>");
     }
 
 
