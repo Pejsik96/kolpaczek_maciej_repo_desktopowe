@@ -4,6 +4,9 @@ package pl.home.local.adams.listazakupow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -337,17 +340,46 @@ public class ListaZakupow extends javax.swing.JFrame{
                 + "<h3>Wprowadź tekst</h3>"
                 + "<p>Nie używaj polskich znaków</p>"
                 + "</html>");
+        
+        jTFWartosc.setToolTipText("<html>"
+                + "<h3>Podaj wartosc </h3>"
+                + "<p> Wartosc </p>"
+                + "</html>");
+                
+        jTFData.setToolTipText("<html>"
+                + "<h3>Wprowadz date </h3>"
+                + "<p> Format RRRR.MM.DD</p>"
+                + "</html>");
+        
+        jTADzisiejszeZakupy.setToolTipText("<html>"
+                + "<h3>Tutaj pokazana jest lista twoich zakupów </h3>"
+                + "<p> nice </p>"
+                + "</html>");
+        
+        jTextField4.setToolTipText("<html>"
+                + "<h3>Tutaj pokazane jest ile wydałeś dzisiaj</h3>"
+                + "<p>oj brahuuu po oszczedzaj lepiej</p>"
+                + "</html>");
+        
+        jTextField5.setToolTipText("<html>"
+                + "<h3>Tutaj pokazane jest ile wydałeś w tym tygodniu </h3>"
+                + "<p>Bogactwo </p>"
+                + "</html>");
+                
     }
     
     private void filljCBProducts(){
-        ArticleTypeUtils atu = new ArticleTypeUtils();
-        //TODO read procucts from file!!!
         jCBProducts.removeAllItems();
-        jCBProducts.addItem("");
-        jCBProducts.addItem("Żywność");
-        jCBProducts.addItem("Napoje");
-        jCBProducts.addItem("Owoce");
-        jCBProducts.addItem("Warzywa");
+        try {
+            Scanner sc = new Scanner(new File("produkty.txt"));
+            while(sc.hasNext()){
+                String item = sc.nextLine();
+                System.out.println(item);
+                jCBProducts.addItem(item);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.toString());
+        }
     }
 
    
