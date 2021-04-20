@@ -5,6 +5,9 @@
  */
 package com.mycompany.rejestracjalogowanie;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author CP24
@@ -16,6 +19,8 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        addKeyListenerTojTextFieldName();
+        addKeyListenerTojTextFieldMail();
     }
 
     /**
@@ -215,6 +220,48 @@ public class NewJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewJFrame().setVisible(true);
+            }
+        });
+    }
+    private void addKeyListenerTojTextFieldName(){
+        jTextFieldName.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String temp=jTextFieldName.getText();
+                char ch=e.getKeyChar();
+                if((ch >= 'A' && ch <= 'Z') && (temp.length()<=20)){
+                    jTextFieldName.setEditable(true);
+                }else{
+                    jTextFieldName.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+    }
+    private void addKeyListenerTojTextFieldMail(){
+        jTextFieldMail.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
     }
