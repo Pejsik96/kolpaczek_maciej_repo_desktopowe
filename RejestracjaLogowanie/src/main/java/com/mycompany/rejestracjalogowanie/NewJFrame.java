@@ -7,6 +7,10 @@ package com.mycompany.rejestracjalogowanie;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +25,10 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         addKeyListenerTojTextFieldName();
         addKeyListenerTojTextFieldMail();
+        addKeyListenerTojTextFieldEmail();
+        addKeyListenerTojPasswordFieldHaslo();
+        addKeyListenerTojPasswordFieldHasloSprawdz();
+        addKeyListenerTojPasswordField();
     }
 
     /**
@@ -44,6 +52,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPasswordFieldHasloSprawdz = new javax.swing.JPasswordField();
         jButtonRejestracja = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanelLogowanie = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -51,6 +60,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         jButtonZaloguj = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RejestracjaLogowanie");
@@ -74,6 +84,13 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jButtonRejestracja.setText("Rejestracja");
+        jButtonRejestracja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRejestracjaActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Mozna uzywac tylko i wylacznie duzych liter i cyfr");
 
         javax.swing.GroupLayout jPanelRejestracjaLayout = new javax.swing.GroupLayout(jPanelRejestracja);
         jPanelRejestracja.setLayout(jPanelRejestracjaLayout);
@@ -82,26 +99,34 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(jPanelRejestracjaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldName)
-                    .addComponent(jTextFieldMail)
-                    .addComponent(jPasswordFieldHaslo)
-                    .addComponent(jPasswordFieldHasloSprawdz)
                     .addGroup(jPanelRejestracjaLayout.createSequentialGroup()
                         .addGroup(jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonRejestracja, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(0, 261, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jTextFieldName)
+                            .addComponent(jTextFieldMail)
+                            .addComponent(jPasswordFieldHaslo)
+                            .addComponent(jPasswordFieldHasloSprawdz)
+                            .addGroup(jPanelRejestracjaLayout.createSequentialGroup()
+                                .addGroup(jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonRejestracja, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanelRejestracjaLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(112, 112, 112))))
         );
         jPanelRejestracjaLayout.setVerticalGroup(
             jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRejestracjaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,6 +158,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jButtonZaloguj.setText("Zaloguj");
 
+        jLabel10.setText("Mozna uzywac tylko i wylacznie duzych liter i cyfr");
+
         javax.swing.GroupLayout jPanelLogowanieLayout = new javax.swing.GroupLayout(jPanelLogowanie);
         jPanelLogowanie.setLayout(jPanelLogowanieLayout);
         jPanelLogowanieLayout.setHorizontalGroup(
@@ -145,17 +172,22 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(jPanelLogowanieLayout.createSequentialGroup()
                         .addGroup(jPanelLogowanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonZaloguj, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(0, 285, Short.MAX_VALUE)))
+                            .addComponent(jLabel8)
+                            .addGroup(jPanelLogowanieLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel10)))
+                        .addGap(0, 102, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelLogowanieLayout.setVerticalGroup(
             jPanelLogowanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLogowanieLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6)
+                .addGroup(jPanelLogowanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,6 +220,36 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jPasswordFieldHasloSprawdzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldHasloSprawdzActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldHasloSprawdzActionPerformed
+
+    private void jButtonRejestracjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRejestracjaActionPerformed
+
+        String haslo1 = jPasswordFieldHaslo.getText();
+        String haslo2 = jPasswordFieldHasloSprawdz.getText();
+        String nazwa= jTextFieldName.getText();
+        if(haslo1.length() <=4){
+            JOptionPane.showMessageDialog(null, "Hasło musi byc dluzsze niz 4 symbole");
+        }else if(nazwa.length() <2){
+            JOptionPane.showMessageDialog(null, "Username musi miec conajmniej dwie litery");
+        }else if(haslo2.equals(haslo1)){
+            JOptionPane.showMessageDialog(null,"Zarejestrowano pomyslnie");
+            String name = jTextFieldName.getText();
+            String email = jTextFieldMail.getText();
+            String password = jPasswordFieldHaslo.getText();
+
+            String wynik = (""+name+";"+email+";"+password+"\n");
+            File f = new File("sekretnehasla.csv");
+            try{
+                FileWriter fw = new FileWriter(f,false);
+                fw.write(wynik+"\n");
+                fw.close();
+            }catch(IOException e){
+                System.out.println("BŁĄD: "+e.toString());
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Hasła nie sa identyczne");
+
+        }
+    }//GEN-LAST:event_jButtonRejestracjaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,7 +313,22 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldMail.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                
+                String temp=jTextFieldMail.getText();
+                char ch=e.getKeyChar();
+                if((ch=='@' || ch>='A' && ch<='Z')){
+                    jTextFieldMail.setEditable(true);
+                }
+                else{
+                    jTextFieldMail.setEditable(false);
+                }
+                if(temp.contains("@")){
+                   if(ch >= 'A' && ch <= 'Z' || ch == '.'){
+                        jTextFieldMail.setEditable(true);
+                    }
+                   else{
+                       jTextFieldMail.setEditable(false);
+                   }
+                }
             }
 
             @Override
@@ -265,11 +342,114 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
     }
+    private void addKeyListenerTojTextFieldEmail(){
+        jTextFieldEmail.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                                String temp=jTextFieldEmail.getText();
+                char ch=e.getKeyChar();
+                if((ch=='@' || ch>='A' && ch<='Z')){
+                    jTextFieldEmail.setEditable(true);
+                }
+                else{
+                    jTextFieldEmail.setEditable(false);
+                }
+                if(temp.contains("@")){
+                   if(ch >= 'A' && ch <= 'Z' || ch == '.'){
+                        jTextFieldEmail.setEditable(true);
+                    }
+                   else{
+                       jTextFieldEmail.setEditable(false);
+                   }
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    private void addKeyListenerTojPasswordFieldHaslo(){
+        jPasswordFieldHaslo.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if(ch >= 'A' && ch <= 'Z' || ch >= '0'  && ch <= '9'){
+                    jPasswordFieldHaslo.setEditable(true);
+                }else{
+                    jPasswordFieldHaslo.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    private void addKeyListenerTojPasswordFieldHasloSprawdz(){
+        jPasswordFieldHasloSprawdz.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if(ch >= 'A' && ch <= 'Z' || ch >= '0'  && ch <= '9'){
+                    jPasswordFieldHasloSprawdz.setEditable(true);
+                }else{
+                    jPasswordFieldHasloSprawdz.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    private void addKeyListenerTojPasswordField(){
+        jPasswordField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                if(ch >= 'A' && ch <= 'Z' || ch >= '0'  && ch <= '9'){
+                    jPasswordField.setEditable(true);
+                }else{
+                    jPasswordField.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRejestracja;
     private javax.swing.JButton jButtonZaloguj;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -277,6 +457,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelLogowanie;
     private javax.swing.JPanel jPanelRejestracja;
     private javax.swing.JPasswordField jPasswordField;
