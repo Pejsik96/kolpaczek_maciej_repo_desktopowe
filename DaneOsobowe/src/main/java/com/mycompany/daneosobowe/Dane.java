@@ -12,9 +12,9 @@ public class Dane {
     private String imie;
     private String nazwisko;
     private String klasa;
-    private int rok;
+    private String rok;
 
-    public Dane(String imie, String nazwisko, String klasa, int rok) {
+    public Dane(String imie, String nazwisko, String klasa, String rok) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.klasa = klasa;
@@ -33,7 +33,7 @@ public class Dane {
         return klasa;
     }
 
-    public int getRok() {
+    public String getRok() {
         return rok;
     }
     

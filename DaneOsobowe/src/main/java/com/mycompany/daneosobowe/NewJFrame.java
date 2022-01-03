@@ -54,6 +54,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Dodaj dane");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,6 +97,10 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new NewJDialog(null,true).show();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -126,6 +135,11 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
     }
+    jList1.addMouseListener(new MouseAdapter (){
+        
+    });
+    
+
     
     DefaultListModel dlm;
     ArrayList<Dane> listadanych;
