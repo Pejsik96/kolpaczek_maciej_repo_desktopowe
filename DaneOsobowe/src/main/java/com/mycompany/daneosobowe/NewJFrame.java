@@ -4,8 +4,16 @@
  */
 package com.mycompany.daneosobowe;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +29,7 @@ public class NewJFrame extends javax.swing.JFrame {
         listadanych=new ArrayList<>();
         dlm=new DefaultListModel();
         //jList1.setModel(dlm);
+        PopUpMenu();
     }
 
     /**
@@ -37,7 +46,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jLTask = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
 
         jMenuItem1.setText("delete");
@@ -48,10 +57,18 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setComponentPopupMenu(jPopupMenu1);
-
-        jList1.setComponentPopupMenu(jPopupMenu1);
-        jScrollPane1.setViewportView(jList1);
+        jLTask.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item1", "Item2" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jLTask.setComponentPopupMenu(jPopupMenu1);
+        jLTask.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLTaskMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jLTask);
 
         jButton1.setText("Dodaj dane");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +118,10 @@ public class NewJFrame extends javax.swing.JFrame {
         new NewJDialog(null,true).show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jLTaskMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTaskMousePressed
+        PopUpMenu();
+    }//GEN-LAST:event_jLTaskMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -135,9 +156,36 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
     }
-    jList1.addMouseListener(new MouseAdapter (){
-        
-    });
+    private void PopUpMenu(){
+        jLTask.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e) {check(e);}
+            public void mouseReleased(MouseEvent e) {check(e);}
+            
+            public void check(MouseEvent e){
+                if(e.isPopupTrigger()){
+                    jLTask.setSelectedIndex(jLTask.locationToIndex(e.getPoint()));
+                    JOptionPane.showMessageDialog(null,
+                        "Selected index"+jLTask.getSelectedIndex()
+                        +" value: "+jLTask.getSelectedValue()); 
+                            
+                    jPopupMenu1.show(jLTask, e.getX(), e.getY());
+                }
+            }
+        });
+    }
+    public class SaveToFile {
+    private String file_name = "lista_zakupow.csv";
+
+    public void saveToFile(String text){
+        try {
+            FileWriter fw = new FileWriter(new File(file_name),true);
+            fw.write(text);
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
     
 
     
@@ -146,7 +194,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jLTask;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
