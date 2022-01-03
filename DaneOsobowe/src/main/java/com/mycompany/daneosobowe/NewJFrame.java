@@ -18,6 +18,9 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        listadanych=new ArrayList<>();
+        dlm=new DefaultListModel();
+        //jList1.setModel(dlm);
     }
 
     /**
@@ -29,13 +32,25 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
 
+        jMenuItem1.setText("delete");
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("modify");
+        jPopupMenu1.add(jMenuItem2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setComponentPopupMenu(jPopupMenu1);
+
+        jList1.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Dodaj dane");
@@ -118,7 +133,10 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
