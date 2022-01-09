@@ -1,0 +1,2 @@
+Maciej;Kolpaczek;3 PTN;2019
+Adam;Adamski;2PTN;2019
