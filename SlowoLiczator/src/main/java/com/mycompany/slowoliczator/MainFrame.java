@@ -5,6 +5,7 @@
 package com.mycompany.slowoliczator;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +55,11 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("SPRAWDZ!!!!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MainJPLayout = new javax.swing.GroupLayout(MainJP);
         MainJP.setLayout(MainJPLayout);
@@ -135,6 +141,14 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.revalidate();
         jMenuItemAB.setEnabled(false);
     }//GEN-LAST:event_jMenuItemABActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String tekst = jTextArea1.getText();
+        String[] podzielony = tekst.trim().split("\\s+");
+        int iloscslow = podzielony.length;
+        System.out.println(iloscslow);
+        JOptionPane.showMessageDialog(null, "Ilość słów: "+iloscslow);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
