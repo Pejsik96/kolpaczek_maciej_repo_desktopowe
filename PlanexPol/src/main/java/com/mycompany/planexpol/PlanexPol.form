@@ -45,10 +45,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -72,13 +69,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="132" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="580" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="132" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="318" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,9 +88,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="67" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="218" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="505" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,103 +105,14 @@
             <Property name="text" type="java.lang.String" value="dupcia"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="7" rowCount="9">
-                    <Column editable="true" title="Nr" type="java.lang.String">
-                      <Data value="1"/>
-                      <Data value="2"/>
-                      <Data value="3"/>
-                      <Data value="4"/>
-                      <Data value="5"/>
-                      <Data value="6"/>
-                      <Data value="7"/>
-                      <Data value="8"/>
-                      <Data value="9"/>
-                    </Column>
-                    <Column editable="true" title="Godz" type="java.lang.String">
-                      <Data value="8:00- 8:45"/>
-                      <Data value="8:50- 9:35"/>
-                      <Data value="9:45-10:30"/>
-                      <Data value="10:50-11:35"/>
-                      <Data value="11:45-12:30"/>
-                      <Data value="12:40-13:25"/>
-                      <Data value="13:35-14:20"/>
-                      <Data value="14:25-15:10"/>
-                      <Data value="15:15-16:00"/>
-                    </Column>
-                    <Column editable="true" title="Pon" type="java.lang.String">
-                      <Data value=""/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="true" title="Wt" type="java.lang.String"/>
-                    <Column editable="true" title="&#x15a;r" type="java.lang.String"/>
-                    <Column editable="true" title="Czw" type="java.lang.String"/>
-                    <Column editable="true" title="Pt" type="java.lang.String"/>
-                  </Table>
-                </Property>
-                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                  <TableColumnModel selectionModel="2">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                  </TableColumnModel>
-                </Property>
-                <Property name="columnSelectionAllowed" type="boolean" value="true"/>
-                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Poka plan"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
