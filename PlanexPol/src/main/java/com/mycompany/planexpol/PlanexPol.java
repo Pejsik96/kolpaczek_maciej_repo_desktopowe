@@ -20,11 +20,8 @@ public class PlanexPol extends javax.swing.JFrame {
      */
     public PlanexPol() {
         initComponents();
+        essa();
         
-        FileManager fm = new FileManager("plan.csv");
-        tableModel.addColumn("Nr");
-        tableModel.insertRow(0, new Object[] { "" });
-        tableModel.addColumn("Godz");
 
 
     }
@@ -43,8 +40,14 @@ public class PlanexPol extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,9 +55,10 @@ public class PlanexPol extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Sawasdee", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("dupcia");
+        jLabel1.setText("Wybierz plan");
 
         jButton1.setText("Poka plan");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -68,12 +72,12 @@ public class PlanexPol extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(323, 323, 323)
-                        .addComponent(jButton1)))
-                .addContainerGap(318, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,12 +90,63 @@ public class PlanexPol extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Klasy");
+
+        jMenuItem1.setText("4PTN");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("3PTN");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Nauczyciele");
+
+        jMenuItem3.setText("SA");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("ZT");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Sale");
+
+        jMenuItem5.setText("Sala 1");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setText("Sala 2");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -111,7 +166,8 @@ public class PlanexPol extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    String wybor ="";
+    FileManager fm = new FileManager("4PTN.csv");
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFrame f = new JFrame();
         f.setSize(550, 350);
@@ -119,6 +175,66 @@ public class PlanexPol extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       jLabel1.setText("4PTN");
+       FileManager fm = new FileManager("4PTN.csv");
+       jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        jLabel1.setText("3PTN");
+        FileManager fm = new FileManager("3PTN.csv");
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        jLabel1.setText("SA");
+        FileManager fm = new FileManager("SA.csv");
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        jLabel1.setText("ZT");
+        FileManager fm = new FileManager("ZT.csv");
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        jLabel1.setText("Sala 1");
+        FileManager fm = new FileManager("S2.csv");
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        jLabel1.setText("Sala 2");
+        FileManager fm = new FileManager("S2.csv");
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    public void essa(){
+        
+        String tekst = fm.readFromFile();
+        String [] lekcje = tekst.split(",");
+       
+        
+        
+        // String[] lekcja = 
+        tableModel.addColumn("Nr");
+        tableModel.addColumn("Godz");
+        tableModel.addColumn("Pon");
+        tableModel.addColumn("Wtr");
+        tableModel.addColumn("Śrd");
+        tableModel.addColumn("Czw");
+        tableModel.addColumn("Ptk");
+        tableModel.insertRow(0, new Object[] { "1","8:00 -8:45",lekcje[0],lekcje[1],lekcje[2],lekcje[3],lekcje[4] });
+        tableModel.insertRow(1, new Object[] { "2","8:50 - 9:35",lekcje[5],lekcje[6],lekcje[7],lekcje[8],lekcje[9] });
+        tableModel.insertRow(2, new Object[] { "3","9:45 - 10:30",lekcje[10],lekcje[11],lekcje[12],lekcje[13],lekcje[14] });
+        tableModel.insertRow(3, new Object[] { "4","10:50 - 11:35",lekcje[15],lekcje[16],lekcje[17],lekcje[18],lekcje[19] });
+        tableModel.insertRow(4, new Object[] { "5", "11:45 - 12:30",lekcje[20],lekcje[21],lekcje[22],lekcje[23],lekcje[24] });
+        
+        
+       
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -163,6 +279,12 @@ public class PlanexPol extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
