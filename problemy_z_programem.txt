@@ -1,0 +1,4 @@
+1.Problem z wczytywaniem z pliku zaradziliśmy w sposób taki że znaleźlismy na repo pejsika plik gotowy do wczytywania
+2.Nie umieliśmy się posługiwać tablemodelem ale przeczytaliśmy poradnik później i wszystko g
+3.Bardzo nam sie nie chciało ale znaleźliśmy siły i rozwaliliśmy temat na 5 giga es
+4.Nie mogliśmy wkleić planu do głównego okienka więc wkleiśmy go do osobnego okienka
