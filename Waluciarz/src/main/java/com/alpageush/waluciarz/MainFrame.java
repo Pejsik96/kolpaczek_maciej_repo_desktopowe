@@ -4,6 +4,9 @@
  */
 package com.alpageush.waluciarz;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  *
  * @author uczen
@@ -34,6 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +62,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTextField2.setEditable(false);
 
+        jButton1.setText("Sprawdź");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,12 +86,14 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(108, 108, 108))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField2)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,7 +111,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,6 +133,32 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FileData save = new FileData();
+        if(jRadioButton1.isSelected()){
+            BigDecimal ilosc = new BigDecimal(jTextField1.getText());
+            Api api = new Api();
+            String waluta = jComboBox1.getSelectedItem().toString();
+            BigDecimal cena = api.getPrice("buy", waluta);
+            System.out.println(cena);
+            System.out.println(ilosc);
+            BigDecimal wynik = ilosc.multiply(cena);
+            jTextField2.setText(""+wynik);
+            save.saveData("buy", waluta, ilosc, wynik, cena);
+        }
+        else if(jRadioButton2.isSelected()){
+            BigDecimal ilosc = new BigDecimal(jTextField1.getText());
+            Api api = new Api();
+            String waluta = jComboBox1.getSelectedItem().toString();
+            BigDecimal cena = api.getPrice("sell", waluta);
+            System.out.print(cena);
+            BigDecimal wynik = ilosc.divide(cena, 2, RoundingMode.HALF_UP);
+            jTextField2.setText(""+wynik);
+            save.saveData("sell", waluta, ilosc, wynik, cena);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +197,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
