@@ -18,13 +18,6 @@ public class Api {
     public Api(){
         
     }
-    /*
-        nazwa funkcji: getPrice();
-        argumenty: akcja(sell/buy), waluta;
-        typ zwracany: float, cena(sprzedazy/zakupu)
-        informacje: pobiera cene z API NPB;
-        autor: Tomasz Stepien;
-    */
     public BigDecimal getPrice(String action, String currency){
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
